@@ -2,4 +2,4 @@ version: 0.0
 os: linux
 files:
   - source: ./java-tomcat-maven-example.war
-    destination: /opt/tomcat/webapps/vk.war
+    destination: /opt/tomcat/webapps/venkey1.war
