@@ -2,4 +2,5 @@ version: 0.0
 os: linux
 files:
   - source: ./java-tomcat-maven-example.war
+    backup: cp /opt/tomcat/webapps/java-tomcat-maven-example.war /opt/
     destination: /opt/tomcat/webapps/
