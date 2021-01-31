@@ -2,10 +2,13 @@ version: 0.2
 
 phases:
   install:
-    npm install
+    runtime-versions:
+     java: corretto8
   build:
     commands:
       - echo Build started on `date`
+      - whoami
+      - who am i
       - Java -version
       - npm install
       - mvn validate
