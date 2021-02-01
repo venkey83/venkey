@@ -1,18 +1,21 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      java: corretto8
+      - apt update
+      - apt install npm -y
   build:
     commands:
       - echo Build started on `date`
-      - whoami
       - java -version
       - npm install
       - mvn validate
-      - mvn test
   post_build:
     commands:
       - echo Build completed on `date`
-      - mvn package
+      - mvn -e -Pdev clean package -DskipTests
 artifacts:
   files:
     - target/java-tomcat-maven-example.war
