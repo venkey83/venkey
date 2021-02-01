@@ -7,8 +7,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - scripts/packages
-      - npm install
       - mvn test
   post_build:
     commands:
