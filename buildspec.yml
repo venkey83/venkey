@@ -5,8 +5,7 @@ phases:
     commands:
       - echo Build started on `date`
       - whoami
-      - who am i
-      - Java -version
+      - java -version
       - npm install
       - mvn validate
       - mvn test
