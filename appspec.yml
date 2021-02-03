@@ -2,18 +2,4 @@ version: 0.0
 os: linux
 files:
   - source: ./java-tomcat-maven-example.war
-    destination: /opt/tomcat/webapps/
-hooks:
-  BeforeInstall:
-    - location: scripts/backups
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: root
-  AfterInstall:
-  ApplicationStart:
-    - location: scripts/start_server
-      timeout: 300
-      runas: root
+    destination: /opt/tomcat/webapps
