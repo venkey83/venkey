@@ -1,6 +1,6 @@
 #!/bin/bash
 isExistApp=`pgrep tomcat`
 if [[ -n  $isExistApp ]]; then
-    service tomcat stop        
+   sudo /opt/tomcat/bin/shutdown.sh        
 fi
 
