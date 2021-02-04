@@ -16,4 +16,4 @@ artifacts:
   files:
     - target/java-tomcat-maven-example.war
     - appspec.yml
-  discard-paths: yes
+    - scripts/**/*
