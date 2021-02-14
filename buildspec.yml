@@ -17,6 +17,7 @@ pre_build:
 build:
   commands:
     - echo Build started on `date`
+    - echo Build started on `date`
     - echo proceed db connection to $ENDPOINT
     - echo proceed db migrate update, DDL proceed here
     - echo proceed application test, CRUD test run here
