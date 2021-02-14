@@ -3,40 +3,17 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.7
       java: corretto8
-  pre_build:
-    commands:
-      - aws --version
-      - aws configure set region ap-southeast-1
-      - export DATE=`date +%Y%m%d%H%M`
-      - aws rds create-db-snapshot --db-instance-identifier venkey --db-snapshot-identifier venkey-$DATE
-      - while [ $(aws rds describe-db-snapshots --db-snapshot-identifier venkey-$DATE | grep -c available) -eq 0 ]; do echo "sleep 60s"; sleep 60; done
-      - export DBIDENTIFIER=venkey.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com-$DATE
-      - echo $DBIDENTIFIER
-      - aws rds restore-db-instance-from-db-snapshot  --db-instance-identifier venkey-$DATE --db-snapshot-identifier venkey-$DATE --db-instance-class db.t3.small
-      - while [ $(aws rds describe-db-instances --db-instance-identifier venkey-$DATE | grep -c available) -eq 0 ]; do echo "sleep 60s"; sleep 60; done
-      - echo "Temp db ready"
-      - export ENDPOINT=venkey-$DATE.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com
-      - echo $ENDPOINT
-      - echo Build started on `date`
   build:
     commands:
-      - echo Build started on `date` ---
-      - echo proceed db connection to $ENDPOINT
-      - echo proceed db migrate update, DDL proceed here
-      - echo proceed application test, CRUD test run here
       - echo Build started on `date`
       - mvn test
   post_build:
     commands:
-      - echo Build completed on `date` --
-      - echo $DBNAME
-      - echo $ENDPOINT
       - echo Build completed on `date`
       - mvn package
-  artifacts:
-   files:
-      - target/java-tomcat-maven-example.war
-      - appspec.yml
-      - scripts/**/*
+artifacts:
+  files:
+    - target/java-tomcat-maven-example.war
+    - appspec.yml
+    - scripts/**/*
