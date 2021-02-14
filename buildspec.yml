@@ -8,10 +8,10 @@ pre_build:
   commands:
     - pip3 install awscli --upgrade --user
     - export DATE=`date +%Y%m%d%H%M`
-	  - aws rds create-db-snapshot --db-instance-identifier venkey --db-snapshot-identifier venkey-$DATE
+    - aws rds create-db-snapshot --db-instance-identifier venkey --db-snapshot-identifier venkey-$DATE
     - export DBIDENTIFIER=venkey.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com-$DATE
     - echo $DBIDENTIFIER
-  	- aws rds restore-db-instance-from-db-snapshot  --db-instance-identifier venkey-$DATE --db-snapshot-identifier venkey-$DATE --db-instance-class db.t3.small
+    - aws rds restore-db-instance-from-db-snapshot  --db-instance-identifier venkey-$DATE --db-snapshot-identifier venkey-$DATE --db-instance-class db.t3.small
     - echo "Temp db ready"
     - echo $ENDPOINT
 build:
