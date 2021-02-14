@@ -10,8 +10,8 @@ phases:
       - aws --version
       - aws configure set region ap-southeast-1
       - curl -OL https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
-      - dpkg -i mysql-apt-config*
-      - apt update
-      - apt install mysql-server -y
+      - sudo dpkg -i mysql-apt-config*
+      - sudo apt update
+      - sudo apt install mysql-server -y
 
 
