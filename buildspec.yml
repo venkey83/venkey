@@ -27,16 +27,16 @@ phases:
       - echo proceed db migrate update, DDL proceed here
       - echo proceed application test, CRUD test run here
       - echo Build started on `date`
-      -       - mvn test
+      - mvn test
   post_build:
     commands:
       - echo Build completed on `date` --
       - echo $DBNAME
       - echo $ENDPOINT
       - echo Build completed on `date`
-      -       - mvn package
+      - mvn package
   artifacts:
    files:
       - target/java-tomcat-maven-example.war
-      -     - appspec.yml
+      - appspec.yml
       - scripts/**/*
