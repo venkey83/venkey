@@ -4,32 +4,11 @@ phases:
   install:
     runtime-versions:
       python: 3.7
+      mysql: 8.0
   pre_build:
     commands:
       - aws --version
       - aws configure set region ap-southeast-1
       - export DATE=`date +%Y%m%d%H%M`
-      - aws rds create-db-snapshot --db-instance-identifier venkey --db-snapshot-identifier venkey-$DATE
-      - while [ $(aws rds describe-db-snapshots --db-snapshot-identifier venkey-$DATE | grep -c available) -eq 0 ]; do echo "sleep 60s"; sleep 60; done
-      - export DBIDENTIFIER=venkey.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com-$DATE
-      - echo $DBIDENTIFIER
-      - aws rds restore-db-instance-from-db-snapshot  --db-instance-identifier venkey-$DATE --db-snapshot-identifier venkey-$DATE --db-instance-class db.t3.small
-      - while [ $(aws rds describe-db-instances --db-instance-identifier venkey-$DATE | grep -c available) -eq 0 ]; do echo "sleep 60s"; sleep 60; done
-      - echo "Temp db ready"
-      - export ENDPOINT=venkey-$DATE.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com
-      - echo $ENDPOINT
-      - apt-get install mysql-client -y
-      - mysql -h $ENDPOINT -u admin -P 3306 -p 12345678
-      - echo Build started on `date`
-  build:
-    commands:
-      - echo Build started on `date` ---
-      - echo proceed db connection to $ENDPOINT
-      - echo proceed db migrate update, DDL proceed here
-      - echo proceed application test, CRUD test run here
-      
-  post_build:
-    commands:
-      - echo Build completed on `date` --
-      - echo $DBNAME
-      - echo $ENDPOINT
+
+
