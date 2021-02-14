@@ -1,3 +1,13 @@
+
+
+
+aws configure set region ap-southeast-1
+
+
+
+
+
+
 export DATE=`date +%Y%m%d%H%M`
   aws rds create-db-snapshot --db-instance-identifier venkey --region ap-southeast-1 --db-snapshot-identifier venkey-$DATE
   sleep 300s
