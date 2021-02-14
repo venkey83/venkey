@@ -1,6 +1,0 @@
-#!/bin/bash
-isExistApp=`pgrep tomcat`
-if [[ -n  $isExistApp ]]; then
-   sudo /opt/tomcat/bin/shutdown.sh        
-fi
-
