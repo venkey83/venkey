@@ -7,6 +7,9 @@ phases:
   pre_build:
     commands:
       - aws --version
+      - aws configure set region ap-southeast-1
+      - export DATE=`date +%Y%m%d%H%M`
+      - aws rds create-db-snapshot --db-instance-identifier venkey --db-snapshot-identifier venkey-$DATE
       - echo Build started on `date`
   build:
     commands:
