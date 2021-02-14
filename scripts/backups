@@ -1,4 +1,0 @@
-#!/bin/bash
-cp /opt/tomcat/webapps/java-tomcat-maven-example.war /opt/backs/
-rm -rf /opt/tomcat/webapps/java-tomcat-maven-example.war
-
