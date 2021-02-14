@@ -9,5 +9,5 @@ phases:
     commands:
       - aws --version
       - aws configure set region ap-southeast-1
-      - wget https://dev.mysql.com/downloads/file/?id=500638
+      - wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java_8.0.23-1ubuntu20.04_all.deb
 
