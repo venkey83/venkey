@@ -12,6 +12,6 @@ phases:
       - export DATE=`date +%Y%m%d%H%M`
       # Stat Mysql if you need it
 
-      - apt-get install -y mysql-server
+      - apt-get install -y mysql*
 
 
