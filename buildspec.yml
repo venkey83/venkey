@@ -5,6 +5,11 @@ phases:
     runtime-versions:
       java: corretto8
       python: 3.7
+
+  pre_build:
+    commands:
+      - aws --version
+      - aws configure set region ap-southeast-1
   build:
     commands:
       - echo Build started on `date`
