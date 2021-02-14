@@ -5,6 +5,7 @@ phases:
       python: 3.7
 pre_build:
   commands:
+    - aws --version
     - pip3 install awscli --upgrade --user
     - export DATE=`date +%Y%m%d%H%M`
     - aws rds create-db-snapshot --db-instance-identifier venkey --region ap-southeast-1 --db-snapshot-identifier venkey-$DATE
