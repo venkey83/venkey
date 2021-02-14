@@ -11,3 +11,4 @@ phases:
       - aws configure set region ap-southeast-1
       - wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java_8.0.23-1ubuntu20.04_all.deb
       - dpkg -i mysql-connector-java_8.0.23-1ubuntu20.04_all.deb
+      - jdbc:driver://:3306/dbName?user=admin&password=12345678
