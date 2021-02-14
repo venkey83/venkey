@@ -4,11 +4,14 @@ phases:
   install:
     runtime-versions:
       python: 3.7
-      mysql: 8.0
+
   pre_build:
     commands:
       - aws --version
       - aws configure set region ap-southeast-1
       - export DATE=`date +%Y%m%d%H%M`
+      # Stat Mysql if you need it
+
+      - apt-get install -y mysql-server
 
 
