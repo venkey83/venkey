@@ -9,9 +9,9 @@ phases:
     commands:
       - aws --version
       - aws configure set region ap-southeast-1
-      - export DATE=`date +%Y%m%d%H%M`
-      # Stat Mysql if you need it
-
-      - apt-get install -y mysql*
+      - curl -OL https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+      - dpkg -i mysql-apt-config*
+      - apt update
+      - apt install mysql-server -y
 
 
