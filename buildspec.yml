@@ -14,6 +14,7 @@ phases:
       - export DBIDENTIFIER=venkey.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com-$DATE
       - echo $DBIDENTIFIER
       - aws rds restore-db-instance-from-db-snapshot  --db-instance-identifier venkey-$DATE --db-snapshot-identifier venkey-$DATE --db-instance-class db.t3.small
+      - while [ $(aws rds describe-db-instance-endpoints --db-instance-identifier venkey-$DATE | grep -c available) -eq 0 ]; do echo "sleep 60s"; sleep 60; done
       - echo "Temp db ready"
       - export ENDPOINT=venkey-$DATE.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com
       - echo $ENDPOINT
