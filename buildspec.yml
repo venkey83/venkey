@@ -18,6 +18,7 @@ phases:
       - echo "Temp db ready"
       - export ENDPOINT=venkey-$DATE.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com
       - echo $ENDPOINT
+      - mysql -h $ENDPOINT -u admin -P 3306 -p 12345678
       - echo Build started on `date`
   build:
     commands:
