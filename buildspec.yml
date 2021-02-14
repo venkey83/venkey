@@ -1,27 +1,12 @@
 version: 0.2
+
 phases:
   install:
     runtime-versions:
       python: 3.7
-pre_build:
-  commands:
-    - pip3 install awscli --upgrade --user
-    - aws --version
-    - export DATE=`date +%Y%m%d%H%M`
-    - aws rds create-db-snapshot --db-instance-identifier venkey --region ap-southeast-1 --db-snapshot-identifier venkey-$DATE
-    - export DBIDENTIFIER=venkey.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com-$DATE
-    - echo $DBIDENTIFIER
-    - aws rds restore-db-instance-from-db-snapshot  --db-instance-identifier venkey-$DATE --db-snapshot-identifier venkey-$DATE --db-instance-class db.t3.small
-    - echo "Temp db ready"
-    - echo $ENDPOINT
-build:
-  commands:
-    - echo Build started on `date`
-    - echo Build started on `date`
-    - echo proceed db connection to $ENDPOINT
-    - echo proceed db migrate update, DDL proceed here
-    - echo proceed application test, CRUD test run here
-post_build:
-  commands:
-    - echo Build completed on `date`
-    - echo $DBNAME
+  build:
+    commands:
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
