@@ -9,6 +9,5 @@ phases:
     commands:
       - aws --version
       - aws configure set region ap-southeast-1
-      - apt-get install mysql-client-5.5
-
+      - wget https://dev.mysql.com/downloads/file/?id=500638
 
