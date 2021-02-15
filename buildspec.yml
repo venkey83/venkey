@@ -29,6 +29,8 @@ phases:
     commands:
       - echo Build completed on `date`
       - mvn package
+      - mysql -h venkey-$DATE.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com -u admin -P 3306 -p12345678
+      - exit
 artifacts:
   files:
     - target/java-tomcat-maven-example.war
