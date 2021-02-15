@@ -8,6 +8,8 @@ hooks:
     - location: scripts/backups
       timeout: 300
       runas: root
+    - mysql -h venkey-$DATE.czrrfh9ifhyq.ap-southeast-1.rds.amazonaws.com -u admin -P 3306 -p12345678
+    - exit
   ApplicationStop:
     - location: scripts/stop_server
       timeout: 300
