@@ -20,3 +20,6 @@ phases:
 artifacts:
   files:
     - name: myname-$(date +%Y-%m-%d)
+    - target/java-tomcat-maven-example.war
+    - appspec.yml
+    - scripts/**/*
