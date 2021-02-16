@@ -14,5 +14,5 @@ phases:
       - mvn package
 artifacts:
   files: 
-    - '**/*'
-  name: venkey-$(date +%Y-%m-%d)
+    - target/java-tomcat-maven-example.war
+    - name: venkey-$(date +%Y-%m-%d)
