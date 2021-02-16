@@ -15,6 +15,5 @@ phases:
 artifacts:
   files:
     - target/java-tomcat-maven-example.war
-     - name: myname-venkey
     - appspec.yml
     - scripts/**/*
