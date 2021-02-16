@@ -15,4 +15,4 @@ phases:
 artifacts:
   files: 
     - target/java-tomcat-maven-example.war
-    - name: venkey-$(date +%Y-%m-%d)
+   name: venkey-$(date +%Y-%m-%d)
