@@ -15,6 +15,5 @@ phases:
 artifacts:
   files:
     - target/java-tomcat-maven-example.war
-    - file-format: ZIP
     - appspec.yml
     - scripts/**/*
